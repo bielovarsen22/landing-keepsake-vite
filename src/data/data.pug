@@ -1,5 +1,52 @@
-- const navLinks = [{href: '#favourite', text: 'Мої улюблені солодощі'}, {href: '#tip', text: 'Порада від Yummy'}]
+-
+  const navItems = [
+    { name: 'Home', href: '#top', current: true },
+    { name: 'Works', href: '#works' },
+    { name: 'Services', href: '#services' },
+    { name: 'Journal', href: '#journal' },
+    { name: 'Contact', href: '#contact' }
+  ]
 
-- const cards = [{image: 'card1.png', title: 'Червоний мак', description: 'Пралене з додаванням карамельної крихти, пасти ядер горіхів фундука та мигдалюпокрите шоколадною глазурʼю'}, {image: 'card2.png', title: 'Сливки-ленивки', description: 'Світлі вафельні листи, поєднані молочно-вершковою начинкою та покриті глазур’ю.'}, {image: 'card3.png', title: 'Ліщина', description: 'Праліне з додаванням подрібненої та тертої ліщини та мигдалю, покрите шоколадною глазур’ю.'}]
+  const filterCategories = [
+    { id: 'f-all', name: 'All', checked: true },
+    { id: 'f-branding', name: 'Branding' },
+    { id: 'f-identity', name: 'Identity' },
+    { id: 'f-print', name: 'Print' },
+    { id: 'f-web', name: 'Web' },
+    { id: 'f-motion', name: 'Motion' }
+  ]
 
-- const sweets = ['Чорний шоколад', 'Зефір', 'Пастила', 'Мармелад', 'Мед', 'Халва', 'Цукати']
+  const works = [
+    { title: 'Bloom Coffee', category: 'branding' },
+    { title: 'Northwind App', category: 'web' },
+    { title: 'Paper & Pine', category: 'print' },
+    { title: 'Lumen', category: 'identity' },
+    { title: 'Wave', category: 'motion' },
+    { title: 'Oak Studio', category: 'branding' },
+    { title: 'Atlas', category: 'web' },
+    { title: 'Fold Magazine', category: 'print' },
+    { title: 'Nova', category: 'identity' }
+  ]
+
+  const services = [
+    { icon: 'pen', title: 'Branding', desc: 'Short description of the service and how we help clients grow.' },
+    { icon: 'layers', title: 'Web design', desc: 'Short description of the service and how we help clients grow.' },
+    { icon: 'monitor', title: 'Development', desc: 'Short description of the service and how we help clients grow.' },
+    { icon: 'play', title: 'Motion', desc: 'Short description of the service and how we help clients grow.' }
+  ]
+
+  const stats = [
+    { num: '120+', label: 'Projects' },
+    { num: '45', label: 'Clients' },
+    { num: '12', label: 'Awards' },
+    { num: '8', label: 'Years' }
+  ]
+
+  const clients = ['Acme', 'Globex', 'Initech', 'Umbra', 'Vertex', 'Hooli']
+
+  const journalPosts = [
+    { date: '12 Oct 2026', cat: 'Design', title: 'Why small studios win', desc: 'A short teaser of the article that invites you to read on.' },
+    { date: '28 Sep 2026', cat: 'Branding', title: 'Choosing a brand colour', desc: 'A short teaser of the article that invites you to read on.' },
+    { date: '15 Sep 2026', cat: 'Web', title: 'Type that works on mobile', desc: 'A short teaser of the article that invites you to read on.' },
+    { date: '02 Sep 2026', cat: 'Print', title: 'Paper, ink and patience', desc: 'A short teaser of the article that invites you to read on.' }
+  ]

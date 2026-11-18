@@ -1,0 +1,93 @@
+@use '../abstracts' as *;
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--card-gap);
+  margin-bottom: rem(32);
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  aspect-ratio: var(--card-ratio);
+  background: var(--color-border);
+
+  
+  &::nth-child(even) {
+    background: var(--color-bg-light);
+  }
+
+  &:nth-child(even) {
+    background: var(--color-bg-light);
+  }
+
+  &:nth-child(n+6) {
+    display: none;
+
+    @include mq(md) {
+      display: block;
+    }
+  }
+
+  &:nth-child(9) {
+    @include mq(md) {
+      display: none;
+    }
+    @include mq(lg) {
+      display: block;
+    }
+  }
+
+  &-link {
+    display: block;
+    height: 100%;
+  }
+
+  .overlay {
+    @include flex-center(column);
+    gap: 10px;
+    height: 100%;
+    background: var(--color-overlay);
+    color: var(--color-white);
+    text-align: center;
+    opacity: 0;
+    transition: opacity .25s;
+  }
+
+  &:hover .overlay, 
+  &:focus-within .overlay {
+    opacity: 1;
+  }
+
+  .plus {
+    @include flex-center;
+    width: rem(44);
+    height: rem(44);
+    border-radius: 50%;
+    background: var(--color-teal);
+  }
+
+  &-title {
+    font: 400 rem(16)/1.2 var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &-line {
+    width: rem(24);
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  &-cat {
+    font-size: rem(12);
+    color: var(--color-teal);
+  }
+}

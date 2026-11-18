@@ -1,0 +1,53 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+:root {
+  @each $key, $value in $colors {
+    --color-#{$key}: #{$value};
+  }
+
+  --font-heading: #{map.get($fonts, heading)};
+  --font-body: #{map.get($fonts, body)};
+  --font-logo: #{map.get($fonts, logo)};
+
+  /* значення для mobile (375) */
+  --gutter: 20px;
+  --section-gap: 56px;
+  --header-h: 72px;
+  --fs-h1: 26px; 
+  --fs-cta: 22px; 
+  --fs-btn: 12px; 
+  --fs-quote: 16px;
+  --fs-stat: 38px; 
+  --fs-logo: 22px; 
+  --logo-circle: 34px;
+  --service-icon: 72px; 
+  --journal-img: 96px;
+  --card-ratio: 1 / 0.72; 
+  --card-gap: 12px;
+
+  @include mq(md) {
+    --gutter: 40px; 
+    --section-gap: 72px;
+    --fs-h1: 32px; 
+    --fs-cta: 24px; 
+    --fs-btn: 13px; 
+    --fs-quote: 19px;
+    --fs-stat: 40px; 
+    --fs-logo: 26px; 
+    --logo-circle: 40px;
+    --service-icon: 96px; 
+    --journal-img: 150px; 
+    --card-ratio: 1 / 0.79;
+  }
+
+  @include mq(lg) {
+    --gutter: 90px; 
+    --section-gap: 90px; 
+    --fs-h1: 40px; 
+    --fs-cta: 28px; 
+    --fs-quote: 22px; 
+    --fs-stat: 48px; 
+    --card-gap: 14px;
+  }
+}

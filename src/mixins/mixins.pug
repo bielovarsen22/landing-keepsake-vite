@@ -1,0 +1,43 @@
+//- Міксин для виведення SVG-іконок через спрайт
+mixin icon(name)
+  svg.icon(aria-hidden="true")
+    use(href=`#i-${name}`)
+
+//- Міксин для кнопок і посилань з підтримкою атрибутів (&attributes)
+mixin btn(text, href, modifier)
+  a.btn(class=modifier ? `btn--${modifier}` : '' href=href || '#')&attributes(attributes)
+    if block
+      block
+    else
+      = text
+
+//- Міксин для однієї картки портфоліо (роботи)
+mixin work-card(work)
+  article.card(data-category=work.category)
+    a.card-link(href="#")
+      span.overlay
+        span.plus
+          +icon('plus')
+        span.card-title= work.title
+        span.card-line
+        span.card-cat= work.category
+
+//- Міксин для картки сервісу
+mixin service-card(service)
+  article.service
+    .service-icon
+      +icon(service.icon)
+    h3= service.title
+    p= service.desc
+
+//- Міксин для елемента журналу (поста)
+mixin journal-post(post)
+  article.post
+    .post-img(aria-hidden="true")
+      //- Тут можна буде додати картинку чи залишити стиль за замовчуванням
+    div
+      p.post-meta= `${post.date} / `
+        span= post.cat
+      h3= post.title
+      p= post.desc
+      a.read-more(href="#") Read more

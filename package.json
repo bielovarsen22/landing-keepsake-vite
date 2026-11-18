@@ -9,12 +9,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "8.3.3",
-    "vituum": "^1.2.0",
     "@vituum/vite-plugin-pug": "^1.1.0",
-    "sass": "^1"
+    "autoprefixer": "^10.6.2",
+    "sass": "^1",
+    "sharp": "^0.35.5",
+    "vite": "8.3.3",
+    "vituum": "^1.2.0"
   },
-  "dependencies": {
-    
-  }
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "iOS >= 12"
+  ]
 }

@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+// Дизайн-токени (кольори у вигляді мапи)
+$colors: (
+  "accent": #F95858,
+  "accent-hover": #E44646,
+  "teal": #2CD5C4,
+  "text-dark": #3A3A3C,
+  "text": #666A6E,
+  "muted": #9AA0A6,
+  "bg-light": #F0F3F4,
+  "border": #E1E5E8,
+  "footer": #2A2A2D,
+  "overlay": rgba(30, 32, 36, .82),
+  "white": #fff
+);
+
+$fonts: (
+  heading: ('Oswald', sans-serif),
+  body: ('Open Sans', sans-serif),
+  logo: ('Dancing Script', cursive)
+);
+
+// Брепоінти для медіазапитів
+$breakpoints: (
+  md: 768px,
+  lg: 1280px
+);

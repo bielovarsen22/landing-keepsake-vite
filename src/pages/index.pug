@@ -1,0 +1,37 @@
+extends ../layouts/main.pug
+
+append meta
+  meta(
+    name='description',
+    content='Keepsake is a London-based digital and branding agency: web design, posters and motion video.'
+  )
+  meta(property='og:type', content='website')
+  meta(property='og:title', content='Keepsake — Digital & Branding Agency')
+  meta(property='og:description', content='We turn ideas into beautiful things.')
+  meta(name='theme-color', content='#f95858')
+
+block title
+  title Keepsake — Digital & Branding Agency
+
+block data
+  include ../data/navigation.pug
+  include ../data/categories.pug
+  include ../data/works.pug
+  include ../data/services.pug
+  include ../data/stats.pug
+  include ../data/clients.pug
+  include ../data/journal.pug
+  include ../data/footerColumns.pug
+  include ../data/socials.pug
+
+block content
+  include ../components/sections/hero.pug
+  include ../components/sections/works.pug
+  include ../components/sections/cta.pug
+  include ../components/sections/services.pug
+  include ../components/sections/stats.pug
+  include ../components/sections/clients.pug
+  include ../components/sections/journal.pug
+
+prepend scripts
+  script(type='application/ld+json')!= JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Keepsake', description: 'Digital & Branding Agency', address: { '@type': 'PostalAddress', addressLocality: 'London' } })
