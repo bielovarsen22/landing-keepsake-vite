@@ -1,0 +1,338 @@
+@use '../utils' as *;
+
+// Hero (вирівнювання зліва, як у твоїй 7-й лабі)
+.hero {
+  background: var(--light);
+  padding: 40px 0;
+  text-align: left;
+
+  @include respond-to($bp-tablet) {
+    padding: 60px 0;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    @include respond-to($bp-tablet) {
+      flex-direction: row;
+      width: auto;
+    }
+  }
+}
+
+// CTA
+.cta {
+  background: #fff;
+  padding: 30px var(--side);
+  text-align: center;
+
+  @include respond-to($bp-tablet) {
+    padding: 48px var(--side);
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    justify-content: center;
+    margin-bottom: 16px;
+
+    @include respond-to($bp-tablet) {
+      font-size: 24px;
+    }
+  }
+}
+
+// Services
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
+  text-align: center;
+
+  @include respond-to($bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: var(--light);
+    font-size: 24px;
+
+    @include respond-to($bp-desktop) {
+      width: 80px;
+      height: 80px;
+      font-size: 28px;
+    }
+  }
+
+  h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+}
+
+// Stats
+.stats {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+      flex: 1 1 50%;
+      padding: 12px 0;
+
+      @include respond-to($bp-tablet) {
+        flex: 1 1 25%;
+      }
+    }
+  }
+
+  b {
+    display: block;
+    font: 300 36px $font-heading;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 4px;
+
+    @include respond-to($bp-tablet) {
+      font-size: 40px;
+    }
+  }
+
+  span {
+    display: block;
+    font-family: $font-heading;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}
+
+// Clients & Kind Words
+.clients {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 16px;
+  place-items: center center;
+  margin-bottom: 32px;
+  color: var(--muted);
+
+  @include respond-to($bp-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to($bp-desktop) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.client-noodle {
+  font-family: $font-heading;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.client-haley {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.client-ared {
+  font-family: $font-heading;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+.client-pinewood {
+  font-family: $font-heading;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: lowercase;
+}
+
+.client-vila {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.client-1870 {
+  font-family: $font-base;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.quote {
+  background: var(--light);
+  padding: 30px var(--side);
+  position: relative;
+  margin-bottom: 0;
+
+  &__mark {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  &__text {
+    font-family: $font-base;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #55585b;
+    margin-bottom: 24px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-heading;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  &__name {
+    display: block;
+    font-family: $font-heading;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  &__role {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  &__slider-indicators {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 4px;
+    background-color: #d1d6da;
+    border-radius: 1px;
+
+    &--active {
+      width: 24px;
+      background-color: var(--red);
+    }
+  }
+}
+
+// Journal
+.journal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include respond-to($bp-desktop) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  article {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .thumb {
+    flex: none;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    background: #8a7a68;
+  }
+
+  &__meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 6px;
+  }
+
+  a {
+    color: var(--red);
+    font: 400 11px $font-heading;
+    text-transform: uppercase;
+  }
+}

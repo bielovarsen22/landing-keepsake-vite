@@ -1,18 +1,55 @@
-.button {
+@use '../utils' as *;
+
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
-  min-height: 44px;
-  padding: var(--space-sm) var(--space-lg);
-  font: 400 var(--nav-size) / 1.4 var(--font-heading);
-  letter-spacing: var(--ui-tracking);
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--red);
+  color: #fff;
+  border: 1px solid var(--red);
+  font: 400 12px $font-heading;
   text-transform: uppercase;
-  text-align: center;
-  border: 1px solid transparent;
-  transition:
-    background var(--transition),
-    color var(--transition),
-    border-color var(--transition);
+  letter-spacing: 1px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+
+  &:hover {
+    background: var(--red-hover);
+    border-color: var(--red-hover);
+  }
+
+  &--light {
+    background: transparent;
+    color: var(--dark);
+    border-color: var(--border);
+
+    &:hover {
+      background: transparent;
+      border-color: var(--red);
+      color: var(--red);
+    }
+  }
+
+  @include respond-to($bp-tablet) {
+    width: auto;
+  }
+}
+
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 18px;
+  z-index: 999;
 }

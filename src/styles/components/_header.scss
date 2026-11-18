@@ -1,155 +1,107 @@
-@use '../abstracts' as *;
+@use '../utils' as *;
 
-.site-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header-h);
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-border);
-  z-index: 100;
-  display: flex;
-  align-items: center;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
 
-  .header-inner {
+  &__row {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    height: 60px;
   }
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font: 400 var(--fs-logo) var(--font-logo);
-  color: var(--color-text-dark);
+  gap: 8px;
+  font: 700 22px $font-logo;
+  color: var(--dark);
 
-  &-mark {
-    @include flex-center;
-    width: var(--logo-circle);
-    height: var(--logo-circle);
-    background: var(--color-text-dark);
-    color: var(--color-white);
+  &__circle {
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    font-family: var(--font-heading);
-    font-size: rem(14);
+    background: var(--dark);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-}
-
-.menu-toggle {
-  display: none;
 }
 
 .burger {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--dark);
+
+  @include respond-to($bp-tablet) {
+    display: none;
+  }
+}
+
+.nav {
+  position: fixed;
+  inset: 60px 0 0;
+  background: #fff;
+  display: none;
+  flex-direction: column;
+  padding: 30px var(--side);
+  gap: 16px;
+  overflow-y: auto;
+
+  a:not(.btn) {
+    font: 400 12px $font-heading;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark);
+
+    &:hover,
+    &.active {
+      color: var(--red) !important;
+    }
+  }
+
+  @include respond-to($bp-tablet) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 24px;
+    background: transparent;
+    height: auto;
+  }
+}
+
+.fav-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--red);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
   cursor: pointer;
-
-  .icon:nth-child(2) { display: none; }
-
-  @include mq(lg) {
-    display: none;
-  }
 }
 
-#menu-toggle:checked ~ .burger {
-  .icon:nth-child(1) { display: none; }
-  .icon:nth-child(2) { display: block; }
-}
-
-.menu {
-  position: fixed;
-  top: var(--header-h);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--color-white);
-  padding: var(--gutter);
+#menu-toggle:checked ~ .header .nav {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  overflow-y: auto;
 
-  @include mq(lg) {
+  @include respond-to($bp-tablet) {
     position: static;
-    transform: none;
-    background: transparent;
-    padding: 0;
+    display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 32px;
-    overflow-y: visible;
-  }
-}
-
-#menu-toggle:checked ~ .menu {
-  transform: translateX(0);
-}
-
-.nav-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  @include mq(lg) {
-    flex-direction: row;
+    padding: 0;
     gap: 24px;
-  }
-
-  a {
-    font: 400 rem(13)/1 var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--color-text-dark);
-    transition: color 0.2s;
-
-    &:hover, &[aria-current="page"] {
-      color: var(--color-accent);
-    }
-  }
-}
-
-.menu-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.fav {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: rem(13);
-  color: var(--color-text-dark);
-
-  .icon {
-    stroke: var(--color-accent);
-    fill: var(--color-accent);
-  }
-}
-
-.menu-extra {
-  margin-top: auto;
-  padding-top: 24px;
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  @include mq(lg) {
-    display: none;
-  }
-
-  &-contacts {
-    font-size: rem(13);
-    color: var(--color-muted);
+    background: transparent;
+    height: auto;
   }
 }

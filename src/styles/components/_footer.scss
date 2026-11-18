@@ -1,0 +1,172 @@
+@use '../utils' as *;
+
+.footer {
+  background: var(--footer-bg);
+  color: var(--muted);
+  padding: 40px 0 24px;
+
+  h3 {
+    color: #fff;
+    font-family: $font-heading;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include respond-to($bp-tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+    width: 100%;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    a {
+      font-family: $font-base;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      transition: color 0.2s ease;
+    }
+  }
+}
+
+.subscribe {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  @include respond-to($bp-tablet) {
+    order: 1;
+    max-width: 360px;
+  }
+
+  &__title {
+    color: #fff;
+    font-family: $font-heading;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+
+  &__desc {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  &__input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgb(255 255 255 / 8%);
+      border: 1px solid rgb(255 255 255 / 15%);
+      color: #fff;
+      font-size: 13px;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    padding: 12px 20px;
+    font-family: $font-heading;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  &__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+}
+
+.copy {
+  padding-top: 24px;
+  margin-top: 32px;
+  border-top: 1px solid rgb(255 255 255 / 10%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  font-size: 12px;
+
+  @include respond-to($bp-tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 8px;
+
+  span {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+.social--yellow {
+  background: #ebb035;
+}
+
+.social--blue {
+  background: #3d5a98;
+}
+
+.social--cyan {
+  background: #2cd5c4;
+}
+
+.social--pink {
+  background: #e84c88;
+}
+
+.social--red {
+  background: #f95858;
+}

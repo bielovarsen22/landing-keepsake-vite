@@ -1,99 +1,56 @@
-body {
-  font: 400 var(--body-size) / var(--body-leading) var(--font-body);
-  color: var(--color-text);
-  background: var(--color-white);
-  padding-top: var(--header-height);
-}
-
-a {
-  text-decoration: none;
-}
-
-button {
-  border: 0;
-  background: none;
-  color: inherit;
-}
+@use '../utils' as *;
 
 h1,
 h2,
 h3 {
-  color: var(--color-text-dark);
+  font-family: $font-heading;
+  text-transform: uppercase;
+  color: var(--dark);
 }
 
-section[id],
-footer[id] {
-  scroll-margin-top: calc(var(--header-height) + var(--space-lg));
+h1 {
+  font-size: var(--h1);
+  font-weight: 300;
+  letter-spacing: 2px;
+  line-height: 1.25;
 }
 
-blockquote {
-  max-width: 800px;
-  margin-inline: auto;
-  font: 300 var(--quote-size) / 1.6 var(--font-body);
-}
-
-figcaption {
+h2 {
+  font-size: var(--h2);
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-top: var(--space-lg);
 }
 
-figcaption strong {
-  color: var(--color-text-dark);
-}
-
-figcaption > span:last-child {
-  color: var(--color-muted);
-  font-size: var(--nav-size);
-}
-
-input[type='email'] {
-  width: 100%;
-  min-width: 0;
-  min-height: 44px;
-  padding: var(--space-sm) var(--space-md);
-  background: transparent;
-  border: 1px solid var(--color-muted);
-  color: var(--color-white);
-}
-
-input[type='email']:focus {
-  border-color: var(--color-teal);
-  outline-color: var(--color-teal);
-}
-
-input[type='email']:user-invalid {
-  border-color: var(--color-accent);
-}
-
-input::placeholder {
-  color: var(--color-muted);
-}
-
-blockquote {
-  max-width: none;
-  margin: 0;
-}
-
-figcaption {
-  flex-direction: row;
-  justify-content: flex-start;
-  text-align: left;
-}
-
-figcaption > span:last-child {
+.section-title {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--red);
+  }
 }
 
-figcaption strong {
-  font: 400 13px / 1.6 var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.section-desc {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 24px;
 }
 
-figcaption small {
-  font-size: 12px;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--side);
+}
+
+.section {
+  padding-top: var(--gap);
+  padding-bottom: var(--gap);
 }
